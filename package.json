@@ -1,19 +1,23 @@
 {
+  "name": "organize-music-folder",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Mike Pacific",
+  "license": "MIT",
+  "description": "A simple script that will take your music folder and organize it based on music metadata.",
+  "engines": {
+    "npm": ">=8.0.0",
+    "node": ">=16.0.0"
+  },
+  "scripts": {
+    "start": "node index.js"
+  },
   "dependencies": {
     "dotenv": "^16.0.1",
     "music-metadata": "^7.12.5",
     "replace-special-characters": "^1.2.6",
     "sanitize-filename": "^1.6.3"
   },
-  "name": "organize-music",
-  "version": "1.0.0",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC",
-  "description": "",
   "devDependencies": {
     "eslint": "^8.21.0",
     "eslint-config-standard": "^17.0.0",
