@@ -1,3 +1,4 @@
+require('dotenv').config()
 const MusicMetadata = require('music-metadata')
 const SanitizeFilename = require('sanitize-filename')
 const ReplaceSpecialCharacters = require('replace-special-characters')
@@ -5,8 +6,8 @@ const FS = require('fs').promises
 const path = require('path')
 
 // Change sourcePath to where your original Music folder lives
-const sourcePath = '/Users/mike/Dropbox/Music'
-const destPath = './Music'
+const sourcePath = process.env.SOURCE_PATH
+const destPath = process.env.DEST_PATH
 
 const getFileInfo = async (filePath, ignoreCompilation) => {
   const fileMetadata = await MusicMetadata.parseFile(filePath)
@@ -29,7 +30,8 @@ const getFileInfo = async (filePath, ignoreCompilation) => {
 }
 
 const processFile = async (filePath, ignoreCompilation = false) => {
-  // console.log(`File: ${filePath}`)
+  console.log(`\nOriginal File: ${filePath}`)
+
   try {
     const { album, track, artist, title, fileInfoName, fileInfoExt } = await getFileInfo(filePath, ignoreCompilation)
 
@@ -51,21 +53,23 @@ const processFile = async (filePath, ignoreCompilation = false) => {
       await FS.mkdir(albumFolderPath)
     }
 
+    console.log(`-> Copying to ${albumFolderPath}/${fileName}`)
     await FS.copyFile(filePath, `${albumFolderPath}/${fileName}`)
+    console.log(`-> Copied to ${albumFolderPath}/${fileName}`)
   } catch (error) {
     console.log(`Error (${filePath}): ${error}`, error)
   }
 }
 
-const followPath = async (sourcePath) => {
-  // console.log(`Directory: ${sourcePath}`);
+const followPath = async (resourcePath) => {
+  console.log(`\n Directory: ${resourcePath}`)
 
-  const directoryContents = await FS.readdir(sourcePath, { withFileTypes: true })
+  const directoryContents = await FS.readdir(resourcePath, { withFileTypes: true })
   for (const item of directoryContents) {
     const ignoreItems = ['.DS_Store', '.localized', '.Media Preferences.plist']
     if (ignoreItems.some(ignoreItem => ignoreItem === item.name)) continue
 
-    const itemPath = `${sourcePath}/${item.name}`
+    const itemPath = `${resourcePath}/${item.name}`
     if (item.isDirectory()) {
       await followPath(itemPath)
     } else {

@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "dotenv": "^16.0.1",
     "music-metadata": "^7.12.5",
     "replace-special-characters": "^1.2.6",
     "sanitize-filename": "^1.6.3"
