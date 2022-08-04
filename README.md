@@ -14,4 +14,5 @@ Before executing this script, make sure to back up your existing folder!
 
 ## TODO
 
-This is a quick script, so it could probably use some fine tuning, such as not processing compilation albums a second time. There's probably some other needed refactoring as well, but this was oriignally created to be a one-off script.
+- Be able to parse and handle iTunes XML libraries (not the newest Music format)
+- This is a quick script, so it could probably use some fine tuning. There's probably some other needed refactoring as well, but this was oriignally created to be a one-off script.
