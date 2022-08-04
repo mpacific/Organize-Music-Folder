@@ -54,9 +54,12 @@ module.exports = class MusicFolder {
         await FS.mkdir(albumFolderPath)
       }
 
-      console.log(`-> Copying to ${albumFolderPath}/${fileName}`)
-      await FS.copyFile(filePath, `${albumFolderPath}/${fileName}`)
-      console.log(`-> Copied to ${albumFolderPath}/${fileName}`)
+      const newFilePath = `${albumFolderPath}/${fileName}`
+      console.log(`-> Copying to ${newFilePath}`)
+      await FS.copyFile(filePath, `${newFilePath}`)
+      const fileStat = await FS.stat(filePath)
+      await FS.utimes(newFilePath, fileStat.atime, fileStat.mtime)
+      console.log(`-> Copied to ${newFilePath}`)
     } catch (error) {
       console.log(`Error (${filePath}): ${error}`, error)
     }
