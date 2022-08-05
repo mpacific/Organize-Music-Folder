@@ -1,10 +1,10 @@
 # Organize Your Music Folder
 
-This is a simple script that will take your music folder and organize it based on music metadata. 
+This is a simple script that will take your music folder and organize it based on music metadata.
 
 ## Warning!
 
-Before executing this script, make sure to back up your existing folder! 
+Before executing this script, make sure to back up your existing folder!
 
 ## How to use
 
