@@ -18,8 +18,8 @@ Support has been added to handle older iTunes XML library files. This is entirel
 
 Here's a list of iTunes-related .env variables. Feel free to remove them from your .env to just sync the folders.
 
-- ITUNES_LIBRARY_PATH - The path to the iTunes XML file
-- ITUNES_LIBRARY_OLD_MEDIA_PATH - The folder in which the XML file says the library exists. Do not include the file:// bit
-- ITUNES_LIBRARY_SEGMENT_PLAYLIST - The name of a playlist whose tracks you want to segment by (ie, Favorites)
-- ITUNES_LIBRARY_SEGMENT_PLAYLIST_FOLDER - Where to put tracks in the playlist
-- ITUNES_LIBRARY_UNSEGMENTED_FOLDER - Where to put tracks not in the playlist
+- `ITUNES_LIBRARY_PATH` - The path to the iTunes XML file
+- `ITUNES_LIBRARY_OLD_MEDIA_PATH` - The folder in which the XML file says the library exists. Do not include the file:// bit
+- `ITUNES_LIBRARY_SEGMENT_PLAYLIST` - The name of a playlist whose tracks you want to segment by (ie, Favorites)
+- `ITUNES_LIBRARY_SEGMENT_PLAYLIST_FOLDER` - Where to put tracks in the playlist
+- `ITUNES_LIBRARY_UNSEGMENTED_FOLDER` - Where to put tracks not in the playlist
