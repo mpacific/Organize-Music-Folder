@@ -49,6 +49,7 @@ module.exports = class MusicFolder extends Base {
       createdTime,
       modifiedTime,
       compilation,
+      parentFolder: null,
       path
     })
   }
